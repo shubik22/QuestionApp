@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+html, body, h1, div, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 20px;
+}

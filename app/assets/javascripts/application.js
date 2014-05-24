@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require angular.min
+//= require angular-resource
+//= require question_app
+//= require question_controllers

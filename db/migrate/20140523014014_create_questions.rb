@@ -3,6 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string :title
       t.text :answer
+      t.text :source
       t.integer :author_id
       t.integer :topic_id
       

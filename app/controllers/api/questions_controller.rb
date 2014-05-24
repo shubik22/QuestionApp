@@ -1,5 +1,4 @@
 class Api::QuestionsController < ApplicationController
-  
   def index
     @questions = Question.all
     render json: @questions
@@ -34,4 +33,8 @@ class Api::QuestionsController < ApplicationController
     
   end    
   
+  private
+  def question_params
+    params.require(:question).permit()
+  end
 end
