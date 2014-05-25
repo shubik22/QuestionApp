@@ -4,13 +4,10 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :title
       t.text :answer
       t.text :source
-      t.integer :author_id
-      t.integer :topic_id
+      t.string :category
+      t.boolean :selected, default: false
       
       t.timestamps
     end
-    
-    add_index :questions, :author_id
-    add_index :questions, :topic_id
   end
 end

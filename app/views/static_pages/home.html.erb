@@ -1,10 +1,46 @@
-<div ng-controller="questionListCtrl">
+<div class="content" ng-controller="questionListCtrl">
   <h1>Home Placeholder</h1>
-  <ul>
-      <li ng-repeat="question in questions">
-        <strong>{{question.title}}</strong>  {{question.answer}}
-      </li>
-  </ul>
-  <input type="text" ng-model="newQuestion">
+  <div>
+    Search: <input type="text" ng-model="searchText">
+  </div>
+  <table class="questions">
+    <thead>
+      <td>Category</td>
+      <td>Question</td>
+      <td>Answer</td>
+      <td>Status</td>
+      <td>Action</td>
+    </thead>
+    <tr ng-repeat="question in questions | filter: searchText | orderBy:'category'">
+      <td>{{question.category}}</td>
+      <td>{{question.title}}</td>
+      <td>{{question.answer}}</td>
+      <td>{{question.selected}}</td>
+      <td>
+        <button ng-click="toggleSelect(question)">
+          {{(question.selected) ? "Unselect" : "Select"}}
+        </button>
+    </tr>
+  </table>
+  <div>
+    New Question: <input type="text" ng-model="newQuestion.title">
+  </div>
+  <div>
+    Answer: <input type="text" ng-model="newQuestion.answer">
+  </div>
+  <div>
+    Category: <input type="text" ng-model="newQuestion.category">
+  </div>
   <button ng-click="createQuestion()">Create</button>
+  
+  <div class="selected-question" ng-show="selectedQuestion">
+    <h2>Selected Question</h2>
+    <div>
+      New Question: <input type="text" ng-model="newTitle">
+    </div>
+    <div>
+      Answer: <input type="text" ng-model="newAnswer">
+    </div>
+    <button ng-click="createQuestion()">Create</button>
+  </div>
 </div>

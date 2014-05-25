@@ -1,18 +1,32 @@
 var questionsControllers = angular.module('questionControllers', ['ngResource']);
 
-questionsControllers.controller('questionListCtrl', ['$scope', 'questions',
-  function($scope, questions) {
-    $scope.questions = questions.query(),
+questionsControllers.controller('questionListCtrl', ['$scope', 'Question',
+  function($scope, Question) {
+    $scope.newQuestion = {};
+    $scope.questions = Question.query();
     
     $scope.createQuestion = function() {
-      $scope.questions.push({
-        title: $scope.newQuestion,
-        answer: "No idea"
+      var question = new Question();
+      $.extend(question, $scope.newQuestion);
+
+      question.$save(function() {
+        $scope.questions.push(question);
+        $scope.newQuestion = {};
       });
-      $scope.newQuestion = "";
-    }
+    };
+    
+    $scope.toggleSelect = function(question) {
+      question.selected = !(question.selected);
+      question.$update(function() {
+      })
+    };
   }]);
   
-var questions = questionsControllers.factory("questions", ["$resource", function($resource) {
-  return $resource('/api/questions');
+var Question = questionsControllers.factory("Question", ["$resource",
+  function($resource) {
+    return $resource(
+      '/api/questions/:id',
+      {id: "@id"},
+      {update: {method: "PUT"}}
+    );
 }]);

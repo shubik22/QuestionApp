@@ -15,7 +15,7 @@ class Api::QuestionsController < ApplicationController
   
   def update
     @question = Question.find(params[:id])
-    @question.assign_attributes(note_params)
+    @question.assign_attributes(question_params)
 
     if @question.save
       render json: @question
@@ -35,6 +35,6 @@ class Api::QuestionsController < ApplicationController
   
   private
   def question_params
-    params.require(:question).permit()
+    params.permit(:title, :answer, :category, :selected)
   end
 end
