@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular.min
+//= require angular
 //= require angular-resource
+//= require angular-route
 //= require question_app
 //= require question_controllers

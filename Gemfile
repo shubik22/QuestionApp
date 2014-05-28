@@ -41,12 +41,12 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
-group :test do
-  gem 'shoulda-matchers'
-  gem 'capybara'
-  gem 'guard-rspec'
-  gem 'launchy'
-end
+# group :test do
+#   gem 'shoulda-matchers'
+#   gem 'capybara'
+#   gem 'guard-rspec'
+#   gem 'launchy'
+# end
 
 gem 'bcrypt'
 gem 'pg_search'

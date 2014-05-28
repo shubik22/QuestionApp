@@ -7,7 +7,7 @@ development:
   adapter: postgresql
   database: question_app_dev
   host: localhost
-  username: appacademy
+  username: shubik
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -16,10 +16,10 @@ test:
   adapter: postgresql
   database: question_app_test
   host: localhost
-  username: appacademy
+  username: shubik
 
 production:
   adapter: postgresql
   database: question_app
   host: localhost
-  username: appacademy
+  username: shubik

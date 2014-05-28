@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-html, body, h1, div, ul, li, table, thead, td, tr {
+html, body, header, h1, div, ul, li, table, thead, td, tr {
   margin: 0;
   padding: 0;
   border: 0;
@@ -20,13 +20,42 @@ html, body, h1, div, ul, li, table, thead, td, tr {
   font-family: sans-serif;
 }
 
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
 ul {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {
   font-size: 40px;
   text-align: center;
+}
+
+header {
+  background: blue;
+}
+
+.nav-left {
+  float: left;
+  padding-left: 15px;
+}
+
+.nav-right {
+  float: right;
+}
+
+header a {
+  float: left;
+  color: white;
+  padding: 10px 15px 10px 0;
 }
 
 .content {
